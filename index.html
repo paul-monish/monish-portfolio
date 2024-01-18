@@ -449,15 +449,15 @@
                         <form action="" class="contact-form" data-reveal="right">
 
                             <div class="input-wrapper">
-                                <input type="text" name="name" placeholder="Name *" required class="input-field">
+                                <input type="text" name="name" id="name" placeholder="Name *" required class="input-field">
 
-                                <input type="email" name="email_address" placeholder="Email *" required
+                                <input type="email" name="email_address" id="email" placeholder="Email *" required
                                     class="input-field">
                             </div>
 
-                            <textarea name="message" placeholder="Message *" required class="input-field"></textarea>
+                            <textarea name="message" id="message" placeholder="Message *" required class="input-field"></textarea>
 
-                            <button type="submit" class="btn btn-secondary">Send message</button>
+                            <button type="submit" onclick="gotowhatsapp()" class="btn btn-secondary">Send message</button>
 
                         </form>
 
@@ -519,6 +519,20 @@
 
         function myFunc() {
             preloader.style.display = "none";
+        }
+      
+
+        function gotowhatsapp() {
+            var name = document.getElementById("name").value; 
+            //var phone = document.getElementById("phone").value;
+            var email = document.getElementById("email").value;
+            var message = document.getElementById("message").value;
+            var url ="https://wa.me/916290442416?text=" +
+                    "Name: " +name +"%0a" +
+                    //"Phone: " + phone +"%0a" +
+                    "Email: " +email +"%0a" +
+                    "Service: " +message;
+            window.open(url, "_blank").focus();
         }
     </script>
     <script src="script.js"></script>
